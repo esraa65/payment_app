@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app/core/utils/colors.dart';
 import 'package:payment_app/core/utils/styles.dart';
-import 'package:payment_app/features/chechout/presentation/views/widgets/my_cart_view_body.dart';
+import 'package:payment_app/features/chechout/presentation/views/widgets/custom_payment/payment_details_body.dart';
 
-class MyCardView extends StatelessWidget {
-  const MyCardView({Key? key}) : super(key: key);
+class PaymentDetailsView extends StatelessWidget {
+  const PaymentDetailsView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MyCardView extends StatelessWidget {
         elevation: 0,backgroundColor: white,
         title: const Text('My Cart', style: Styles.style25),
       ),
-      body: const MyCartViewBody(),
+      body: PaymentDetailsBody(),
     );
   }
 }

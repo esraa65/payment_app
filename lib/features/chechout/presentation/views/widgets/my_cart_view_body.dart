@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:payment_app/core/utils/app_router.dart';
 import 'package:payment_app/core/utils/colors.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/custom_button.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/order_info_item.dart';
@@ -51,14 +53,16 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          CustomButton(
+          CustomButton(onPressed: (){
+            context.push(AppRouter.paymentDetailsView);
+          },
               borderRadius: BorderRadius.circular(15),
               text: 'Complete Payment',
               textColor: black,
               hight: 60,
               background: green),
           const SizedBox(
-            height: 12,
+            height: 20,
           ),
         ],
       ),
