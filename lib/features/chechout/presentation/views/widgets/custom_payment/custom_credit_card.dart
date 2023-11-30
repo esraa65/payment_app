@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:payment_app/core/utils/colors.dart';
 
 class CustomCreditCart extends StatefulWidget {
   const CustomCreditCart({Key? key}) : super(key: key);
