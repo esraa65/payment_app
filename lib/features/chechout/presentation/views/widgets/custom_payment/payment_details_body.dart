@@ -1,27 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:payment_app/core/utils/app_router.dart';
 import 'package:payment_app/core/utils/colors.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/custom_button.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/custom_payment/payment_method_istview.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/custom_payment/custom_credit_card.dart';
 
-class PaymentDetailsBody extends StatelessWidget {
+class PaymentDetailsBody extends StatefulWidget {
   const PaymentDetailsBody({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final GlobalKey<FormState> formKey = GlobalKey();
+  State<PaymentDetailsBody> createState() => _PaymentDetailsBodyState();
+}
 
-    return  CustomScrollView(slivers: [
+class _PaymentDetailsBodyState extends State<PaymentDetailsBody> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(slivers: [
       const SliverToBoxAdapter(
         child: PaymentListView(),
       ),
-      const SliverToBoxAdapter(child: CustomCreditCart()),
+      SliverToBoxAdapter(
+          child: CustomCreditCart(
+        autovalidateMode: autovalidateMode,
+        formKey: formKey,
+      )),
       SliverFillRemaining(
         hasScrollBody: false,
-        child: Align(alignment: Alignment.bottomCenter,
+        child: Align(
+          alignment: Alignment.bottomCenter,
           child: Padding(
-            padding: const EdgeInsets.only(bottom: 12.0,left: 16,right: 16),
-            child: CustomButton(hight: 65,
+            padding: const EdgeInsets.only(bottom: 12.0, left: 16, right: 16),
+            child: CustomButton(
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                  } else {
+                    context.push(AppRouter.thankYouView);
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+                hight: 65,
                 borderRadius: BorderRadius.circular(15),
                 text: 'Pay',
                 textColor: black,
