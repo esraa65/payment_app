@@ -11,7 +11,9 @@ class ThankYou extends StatelessWidget {
       appBar: AppBar(
           backgroundColor: Colors.transparent,elevation: 0,
           leading:const Icon(Icons.arrow_back,size: 30,color: black,)),
-      body:const  ThankyouBody(),
+      body:  Transform.translate
+        (offset:const  Offset(0, -30),
+          child:const ThankyouBody()),
     );
   }
 }

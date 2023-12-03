@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:payment_app/core/utils/app_router.dart';
 import 'package:payment_app/core/utils/colors.dart';
+import 'package:payment_app/features/chechout/presentation/views/widgets/custom_bottom_sheet.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/custom_button.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/order_info_item.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/total_price.dart';
@@ -53,9 +52,17 @@ class MyCartViewBody extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          CustomButton(onPressed: (){
-            context.push(AppRouter.paymentDetailsView);
-          },
+          CustomButton(
+              onPressed: () {
+                //context.push(AppRouter.paymentDetailsView);
+                showModalBottomSheet(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  context: context,
+                  builder: (context) {
+                    return const PaymentMethodBottomSheet();
+                  },
+                );
+              },
               borderRadius: BorderRadius.circular(15),
               text: 'Complete Payment',
               textColor: black,
@@ -69,3 +76,4 @@ class MyCartViewBody extends StatelessWidget {
     );
   }
 }
+

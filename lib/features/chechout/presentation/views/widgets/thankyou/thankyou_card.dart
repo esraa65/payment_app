@@ -14,7 +14,6 @@ class ThankYouCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      // height: double.infinity,
       decoration: ShapeDecoration(
         color: whiteGrey,
         shape: RoundedRectangleBorder(
