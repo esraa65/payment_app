@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:payment_app/core/utils/colors.dart';
+import 'package:payment_app/features/chechout/data/models/repos/checkout_repo_implementation.dart';
+import 'package:payment_app/features/chechout/presentation/manger/payment_cubit.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/custom_bottom_sheet.dart';
-import 'package:payment_app/features/chechout/presentation/views/widgets/custom_button.dart';
+import 'package:payment_app/features/chechout/presentation/views/widgets/custom_method_button_sheet.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/order_info_item.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/total_price.dart';
 
@@ -56,10 +59,14 @@ class MyCartViewBody extends StatelessWidget {
               onPressed: () {
                 //context.push(AppRouter.paymentDetailsView);
                 showModalBottomSheet(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
                   context: context,
                   builder: (context) {
-                    return const PaymentMethodBottomSheet();
+                    return BlocProvider(
+                      create: (context) => PaymentCubit(CkeckoutImplementation()),
+                      child:const PaymentMethodBottomSheet(),
+                    );
                   },
                 );
               },

@@ -5,39 +5,39 @@ class PaymentIntentModel {
   int ?amountCapturable;
   Map<String, dynamic> ?amountDetails;
   int? amountReceived;
-  dynamic application;
-  dynamic applicationFeeAmount;
+  Map<String, dynamic> ? application;
+  Map<String, dynamic> ? applicationFeeAmount;
   AutomaticPaymentMethods ?automaticPaymentMethods;
-  dynamic canceledAt;
-  dynamic cancellationReason;
+  Map<String, dynamic> ? canceledAt;
+  Map<String, dynamic> ? cancellationReason;
   String? captureMethod;
   String ?clientSecret;
   String ?confirmationMethod;
   int ?created;
   String? currency;
-  dynamic customer;
-  dynamic description;
-  dynamic invoice;
-  dynamic lastPaymentError;
-  dynamic latestCharge;
+  Map<String, dynamic> ? customer;
+  Map<String, dynamic> ? description;
+  Map<String, dynamic> ? invoice;
+  Map<String, dynamic> ? lastPaymentError;
+  Map<String, dynamic> ? latestCharge;
   bool ? livemode;
   Map<String, dynamic> ?metadata;
-  dynamic nextAction;
-  dynamic onBehalfOf;
-  dynamic paymentMethod;
+  Map<String, dynamic> ? nextAction;
+  Map<String, dynamic> ? onBehalfOf;
+  Map<String, dynamic> ? paymentMethod;
   PaymentMethodOptions ?paymentMethodOptions;
   List<String>? paymentMethodTypes;
-  dynamic processing;
-  dynamic receiptEmail;
-  dynamic review;
-  dynamic setupFutureUsage;
-  dynamic shipping;
-  dynamic source;
-  dynamic statementDescriptor;
-  dynamic statementDescriptorSuffix;
+  Map<String, dynamic> ? processing;
+  Map<String, dynamic> ? receiptEmail;
+  Map<String, dynamic> ? review;
+  Map<String, dynamic> ? setupFutureUsage;
+  Map<String, dynamic> ? shipping;
+  Map<String, dynamic> ? source;
+  Map<String, dynamic> ? statementDescriptor;
+  Map<String, dynamic> ? statementDescriptorSuffix;
   String ?status;
-  dynamic transferData;
-  dynamic transferGroup;
+  Map<String, dynamic> ? transferData;
+  Map<String, dynamic> ? transferGroup;
 
   PaymentIntentModel({
      this.id,
@@ -131,17 +131,19 @@ class PaymentIntentModel {
 }
 
 class AutomaticPaymentMethods {
-  bool ?enabled;
+  bool? enabled;
 
-  AutomaticPaymentMethods({
-    this.enabled,
-  });
+  AutomaticPaymentMethods({this.enabled});
 
   factory AutomaticPaymentMethods.fromJson(Map<String, dynamic> json) {
     return AutomaticPaymentMethods(
-      enabled: json['enabled'],
+      enabled: json['enabled'] as bool?,
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'enabled': enabled,
+  };
 }
 
 class PaymentMethodOptions {
@@ -162,9 +164,9 @@ class PaymentMethodOptions {
 }
 
 class CardOptions {
-  dynamic installments;
-  dynamic mandateOptions;
-  dynamic network;
+  Map<String, dynamic> ? installments;
+  Map<String, dynamic> ? mandateOptions;
+  Map<String, dynamic> ? network;
   String? requestThreeDSecure;
 
   CardOptions({

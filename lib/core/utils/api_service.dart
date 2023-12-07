@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 
 class ApiService {
@@ -12,7 +14,9 @@ class ApiService {
         data: body,
         options: Options(
             contentType: contentType,
-            headers: {'Authorization': "Bearer$token"}));
+            headers: {'Authorization': 'Bearer $token'}));
+    log("token: $token");
+    log("response: $response");
     return response;
   }
 }

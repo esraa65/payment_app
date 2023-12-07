@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:payment_app/core/utils/app_router.dart';
 import 'package:payment_app/core/utils/colors.dart';
-import 'package:payment_app/features/chechout/presentation/views/widgets/custom_button.dart';
+import 'package:payment_app/features/chechout/presentation/views/widgets/custom_method_button_sheet.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/custom_payment/payment_method_istview.dart';
 import 'package:payment_app/features/chechout/presentation/views/widgets/custom_payment/custom_credit_card.dart';
 

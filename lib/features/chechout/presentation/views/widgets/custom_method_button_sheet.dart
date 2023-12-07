@@ -11,7 +11,9 @@ class CustomButton extends StatelessWidget {
       required this.background,
       this.hight,
       this.onPressed,
-      this.fontSize});
+      this.fontSize,
+      this.isLoading=false,
+      });
 
   final String text;
   final Color background;
@@ -19,6 +21,7 @@ class CustomButton extends StatelessWidget {
   final BorderRadius borderRadius;
   final double? fontSize;
   final double? hight;
+  final bool isLoading;
   final void Function()? onPressed;
 
   @override
@@ -31,7 +34,7 @@ class CustomButton extends StatelessWidget {
         style: TextButton.styleFrom(
             backgroundColor: background,
             shape: RoundedRectangleBorder(borderRadius: borderRadius)),
-        child: CustomText(
+        child: isLoading ?const Center(child: CircularProgressIndicator()):CustomText(
           title: text,
           color: textColor,
           styles: Styles.style22,
