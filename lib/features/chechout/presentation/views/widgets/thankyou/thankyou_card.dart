@@ -17,11 +17,11 @@ class ThankYouCard extends StatelessWidget {
       decoration: ShapeDecoration(
         color: whiteGrey,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(15),
         ),
       ),
       child: Padding(
-          padding: const EdgeInsets.only(top: 16 + 50, right: 21, left: 20),
+          padding: const EdgeInsets.only(top: 16 + 40, right: 15, left: 15),
           child: Column(
             children: [
               const CustomText(
@@ -39,18 +39,18 @@ class ThankYouCard extends StatelessWidget {
               ),
               const PaymentSuccess(title: 'Date', infoTitle: '01/24/2023'),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               const PaymentSuccess(title: 'Time', infoTitle: '10:15 AM'),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               const PaymentSuccess(
                 title: 'To',
                 infoTitle: 'Sam Louis',
               ),
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               const Divider(
                 height: 20,
@@ -58,7 +58,7 @@ class ThankYouCard extends StatelessWidget {
                 thickness: 2,
               ),
               const SizedBox(
-                height: 22,
+                height: 20,
               ),
               const TotalPrice(
                 value: r'$50.97',

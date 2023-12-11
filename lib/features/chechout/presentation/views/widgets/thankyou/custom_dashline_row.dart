@@ -6,18 +6,17 @@ class CustomDashlineRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
         children: List.generate(
             25,
-                (index) => Expanded(
-              child: Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 2.0),
-                child: Container(
-                  height: 2,
-                  color: grey,
-                ),
-              ),
-            )));
+            (index) => Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                    child: Container(
+                      height: 2,
+                      color: grey,
+                    ),
+                  ),
+                )));
   }
 }
