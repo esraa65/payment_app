@@ -15,7 +15,7 @@ class PaymentIntentModel {
   String ?confirmationMethod;
   int ?created;
   String? currency;
-  Map<String, dynamic> ? customer;
+  String ? customer;
   Map<String, dynamic> ? description;
   Map<String, dynamic> ? invoice;
   Map<String, dynamic> ? lastPaymentError;
@@ -25,7 +25,7 @@ class PaymentIntentModel {
   Map<String, dynamic> ? nextAction;
   Map<String, dynamic> ? onBehalfOf;
   Map<String, dynamic> ? paymentMethod;
-  PaymentMethodOptions ?paymentMethodOptions;
+  //PaymentMethodOptions ?paymentMethodOptions;
   List<String>? paymentMethodTypes;
   Map<String, dynamic> ? processing;
   Map<String, dynamic> ? receiptEmail;
@@ -66,7 +66,7 @@ class PaymentIntentModel {
     this.nextAction,
     this.onBehalfOf,
     this.paymentMethod,
-    this.paymentMethodOptions,
+    //this.paymentMethodOptions,
     this.paymentMethodTypes,
     this.processing,
     this.receiptEmail,
@@ -111,9 +111,9 @@ class PaymentIntentModel {
       nextAction: json['next_action'],
       onBehalfOf: json['on_behalf_of'],
       paymentMethod: json['payment_method'],
-      paymentMethodOptions: PaymentMethodOptions.fromJson(
-        json['payment_method_options'],
-      ),
+      // paymentMethodOptions: PaymentMethodOptions.fromJson(
+      //   json['payment_method_options'],
+      // ),
       paymentMethodTypes: List<String>.from(json['payment_method_types']),
       processing: json['processing'],
       receiptEmail: json['receipt_email'],
@@ -146,22 +146,22 @@ class AutomaticPaymentMethods {
   };
 }
 
-class PaymentMethodOptions {
-  CardOptions ?card;
-  LinkOptions ?link;
+//  class PaymentMethodOptions {
+//   CardOptions ?card;
+//   LinkOptions ?link;
 
-  PaymentMethodOptions({
-    this.card,
-    this.link,
-  });
+//   PaymentMethodOptions({
+//     this.card,
+//     this.link,
+//   });
 
-  factory PaymentMethodOptions.fromJson(Map<String, dynamic> json) {
-    return PaymentMethodOptions(
-      card: CardOptions.fromJson(json['card']),
-      link: LinkOptions.fromJson(json['link']),
-    );
-  }
-}
+//   factory PaymentMethodOptions.fromJson(Map<String, dynamic> json) {
+//     return PaymentMethodOptions(
+//       card: CardOptions.fromJson(json['card']),
+//       link: LinkOptions.fromJson(json['link']),
+//     );
+//   }
+// }
 
 class CardOptions {
   Map<String, dynamic> ? installments;

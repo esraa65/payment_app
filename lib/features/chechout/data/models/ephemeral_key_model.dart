@@ -1,11 +1,11 @@
 class EphemeralKeyModel {
   String? id;
-  dynamic? object;
+  String? object;
   List<AssociatedObjects>? associatedObjects;
   int? created;
   int? expires;
   bool? livemode;
-  dynamic? secret;
+  String? secret;
 
   EphemeralKeyModel(
       {this.id,
@@ -16,13 +16,13 @@ class EphemeralKeyModel {
         this.livemode,
         this.secret});
 
-  EphemeralKeyModel.fromJson(Map<dynamic, dynamic> json) {
+  EphemeralKeyModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     object = json['object'];
     if (json['associated_objects'] != null) {
       associatedObjects = <AssociatedObjects>[];
       json['associated_objects'].forEach((v) {
-        associatedObjects!.add(new AssociatedObjects.fromJson(v));
+        associatedObjects!.add( AssociatedObjects.fromJson(v));
       });
     }
     created = json['created'];
@@ -31,37 +31,37 @@ class EphemeralKeyModel {
     secret = json['secret'];
   }
 
-  Map<dynamic, dynamic> toJson() {
-    final Map<dynamic, dynamic> data = new Map<dynamic, dynamic>();
-    data['id'] = this.id;
-    data['object'] = this.object;
-    if (this.associatedObjects != null) {
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = id;
+    data['object'] =object;
+    if (associatedObjects != null) {
       data['associated_objects'] =
-          this.associatedObjects!.map((v) => v.toJson()).toList();
+          associatedObjects!.map((v) => v.toJson()).toList();
     }
-    data['created'] = this.created;
-    data['expires'] = this.expires;
-    data['livemode'] = this.livemode;
-    data['secret'] = this.secret;
+    data['created'] = created;
+    data['expires'] = expires;
+    data['livemode'] = livemode;
+    data['secret'] = secret;
     return data;
   }
 }
 
 class AssociatedObjects {
-  dynamic? id;
-  dynamic? type;
+  String? id;
+  String? type;
 
   AssociatedObjects({this.id, this.type});
 
-  AssociatedObjects.fromJson(Map<dynamic, dynamic> json) {
+  AssociatedObjects.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     type = json['type'];
   }
 
-  Map<dynamic, dynamic> toJson() {
-    final Map<dynamic, dynamic> data = new Map<dynamic, dynamic>();
-    data['id'] = this.id;
-    data['type'] = this.type;
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data =  Map<String, dynamic>();
+    data['id'] = id;
+    data['type'] =type;
     return data;
   }
 }
